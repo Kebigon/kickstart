@@ -1,40 +1,73 @@
-#version=DEVEL
+---
+---
+
+# https://docs.fedoraproject.org/en-US/fedora/f30/install-guide/appendixes/Kickstart_Syntax_Reference/
+
+# Configure installation method
+install
+url --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch&country=JP
+repo --name=fedora --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch&country=JP
+repo --name=updates --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f$releasever&arch=$basearch&country=JP
+
+# zerombr
+zerombr
+
+# Configure Boot Loader
+bootloader --location=mbr --driveorder=sda
+
+# Create Physical Partition
 ignoredisk --only-use=sda
-autopart --type=lvm
-# Partition clearing information
-clearpart --all --initlabel --drives=sda
-# Use graphical install
-graphical
-# Keyboard layouts
+autopart --type=plain
+
+# Remove all existing partitions
+clearpart --all --drives=sda
+
+# Configure Firewall
+firewall --enabled
+
+# Configure Network Interfaces
+network --hostname=localhost
+
+# Configure Keyboard Layouts
 keyboard --vckeymap=jp --xlayouts='jp'
-# System language
+
+# Configure Language During Installation
 lang fr_FR.UTF-8
 
-# Network information
-network  --hostname=localhost.localdomain
-#Root password
+# Configure X Window System
+xconfig --startxonboot
+
+# Configure Time Zone
+timezone Asia/Tokyo --isUtc
+
+# Set Root Password
 rootpw --lock
-# X Window System configuration information
-xconfig  --startxonboot
-# Run the Setup Agent on first boot
-firstboot --enable
+
+# Perform Installation in Text Mode
+text
+
 # System services
 services --enabled="chronyd"
-# System timezone
-timezone Asia/Tokyo --isUtc
-user --groups=wheel --name=kebigon --password=$6$5Cd8UxYh<JAgPa#O$rdsZuRu.t4XDt5.fjrIPwJLf6Ng6xfLr2uvjJ3Mbxio7VmGKdsttY5SOAL8zdWBoyP8RCILWDqx5CT5cFt4vz0 --iscrypted --gecos="Kebigon"
 
+# Package Selection
 %packages
 @^workstation-product-environment
-
+make
 %end
 
-%addon com_redhat_kdump --disable --reserve-mb='128'
 
+{% assign scripts = "anki, firefox, freefilesync, git, hosts, password-gorilla, veracrypt" | split: ", " %}
+
+{% for script in scripts %}
+
+%post --log=/root/ks-{{ script }}.log
+{% include post.{{ script }}.sh %}
 %end
 
-%anaconda
-pwpolicy root --minlen=6 --minquality=1 --notstrict --nochanges --notempty
-pwpolicy user --minlen=6 --minquality=1 --notstrict --nochanges --emptyok
-pwpolicy luks --minlen=6 --minquality=1 --notstrict --nochanges --notempty
-%end
+{% endfor %}
+
+# Run the Setup Agent on first boot
+firstboot --enable
+
+# Reboot After Installation
+reboot --eject
