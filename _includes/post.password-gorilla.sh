@@ -3,6 +3,7 @@ set -e
 
 # Install password-gorilla into /usr/local/bin
 wget --no-check-certificate https://gorilla.dp100.com/downloads/gorilla1537_64.bin -O /usr/local/bin/password-gorilla
+chmod +x /usr/local/bin/password-gorilla
 
 # Create launcher
 cat << EOF > /usr/share/applications/password-gorilla.desktop
