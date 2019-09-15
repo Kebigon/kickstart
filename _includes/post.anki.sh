@@ -11,10 +11,10 @@ cd -
 rm -rf /tmp/anki-${anki_version}-linux-amd64
 
 # Low-Key Anki 2.1
-wget https://download740.mediafire.com/8e8t49mcaqsg/lzm3qli6bdh2ubw/Low-Key+Anki+2.1.zip -O /tmp/Low-Key+Anki+2.1.zip
+wget "{{ site.url }}/softwares/Low-Key Anki 2.1.zip" -O "/tmp/Low-Key Anki 2.1.zip"
 mkdir -p /etc/skel/.local/share/Anki2/addons21
-unzip /tmp/Low-Key+Anki+2.1.zip -d /etc/skel/.local/share/Anki2/addons21
-rm /tmp/Low-Key+Anki+2.1.zip
+unzip "/tmp/Low-Key Anki 2.1.zip" -d /etc/skel/.local/share/Anki2/addons21
+rm "/tmp/Low-Key Anki 2.1.zip"
 
 # Download Anki Add-on from AnkiWeb
 # $1: Add-on code
