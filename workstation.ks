@@ -52,6 +52,7 @@ services --enabled="chronyd"
 # Package Selection
 %packages
 @^workstation-product-environment
+fuse-sshfs
 make
 %end
 
