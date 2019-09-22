@@ -7,20 +7,7 @@ EXTENSIONS_FOLDER=/etc/skel/.mozilla/firefox/kebigon.default/extensions
 mkdir $EXTENSIONS_FOLDER -p
 
 # Profiles
-cat << EOF > /etc/skel/.mozilla/firefox/profiles.ini
-[Profile0]
-Name=default
-IsRelative=1
-Path=kebigon.default
-
-[General]
-StartWithLastProfile=1
-Version=2
-
-[Install11457493C5A56847]
-Default=kebigon.default
-Locked=1
-EOF
+wget {{ site.url }}/config/firefox-profiles.ini -O /etc/skel/.mozilla/firefox/profiles.ini
 
 # ghacks user.js
 FIREFOX_VERSION=68.0
