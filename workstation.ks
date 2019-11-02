@@ -15,9 +15,11 @@ zerombr
 # Configure Boot Loader
 bootloader --location=mbr --driveorder=sda
 
-# Create Physical Partition
+# Create Physical Partitions
 ignoredisk --only-use=sda
-autopart --type=plain
+reqpart --add-boot
+part swap --recommended
+part / --grow --fstype=xfs
 
 # Remove all existing partitions
 clearpart --all --drives=sda
