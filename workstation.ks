@@ -56,6 +56,7 @@ services --enabled="chronyd"
 @^workstation-product-environment
 fuse-sshfs
 make
+torbrowser-launcher
 %end
 
 
