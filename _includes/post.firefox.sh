@@ -10,8 +10,11 @@ mkdir $EXTENSIONS_FOLDER -p
 wget {{ site.url }}/config/firefox-profiles.ini -O /etc/skel/.mozilla/firefox/profiles.ini
 
 # ghacks user.js
-FIREFOX_VERSION=68.0
-wget -O - https://github.com/ghacksuserjs/ghacks-user.js/archive/$FIREFOX_VERSION.tar.gz | tar -xz --strip=1 -C /etc/skel/.mozilla/firefox/kebigon.default ghacks-user.js-$FIREFOX_VERSION/user.js
+wget https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js -O /etc/firefox/user.js
+ln -s /etc/firefox/user.js /etc/skel/.mozilla/firefox/kebigon.default/user.js
+
+# Setup a cron to update the user.js file everyday at 20:00
+wget {{ site.url }}/config/user.js.cron -O /etc/cron.d/user.js
 
 # Firefox extension manager
 wget --header='Accept-Encoding:none' -O /usr/local/bin/firefox-extension-manager https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/mozilla/firefox-extension-manager

@@ -18,23 +18,26 @@ rm "/tmp/Low-Key Anki 2.1.zip"
 
 # Download Anki Add-on from AnkiWeb
 # $1: Add-on code
+# $2: Add-on name
 download_anki_addon() {
 	local addon_url=https://ankiweb.net/shared/download/$1?v=2.1
 	local addon_zip=/tmp/$1.zip
 	local addon_dir=/etc/skel/.local/share/Anki2/addons21/$1
 
+	# Download the add-on itself
 	wget $addon_url -O $addon_zip
 	mkdir -p $addon_dir
 	unzip $addon_zip -d $addon_dir
 	rm $addon_zip
+
+	# Create the meta.json file
+	timestamp="$(date +"%s")"
+	echo "{\"name\": \"$2\", \"mod\": $timestamp}" > $addon_dir/meta.json
 }
 
-# Japanese Support
-download_anki_addon 3918629684
-# MorphMan for Anki 2.1
-download_anki_addon 900801631
-# MIA Retirement Addon
-download_anki_addon 1666520655
+download_anki_addon 3918629684 "Japanese Support"
+download_anki_addon 900801631 "MorphMan for Anki 21"
+download_anki_addon 1666520655 "MIA Retirement"
 
 # Update MorphMan configuration
 sed -i "s/'min good sentence length': 2/'min good sentence length': 5/" /etc/skel/.local/share/Anki2/addons21/900801631/morph/config.py

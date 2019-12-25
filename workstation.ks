@@ -61,6 +61,7 @@ compat-ffmpeg28
 ffmpeg-libs
 fuse-sshfs
 make
+torbrowser-launcher
 %end
 
 
