@@ -8,6 +8,8 @@ install
 url --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch&country=JP
 repo --name=fedora --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch&country=JP
 repo --name=updates --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f$releasever&arch=$basearch&country=JP
+repo --name=rpmfusion-free --mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-$releasever&arch=$basearch&country=JP
+repo --name=rpmfusion-free-updates --mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-$releasever&arch=$basearch&country=JP
 
 # zerombr
 zerombr
@@ -52,8 +54,11 @@ text
 services --enabled="chronyd"
 
 # Package Selection
+# Multimedia codecs: ffmpeg-libs compat-ffmpeg28
 %packages
 @^workstation-product-environment
+compat-ffmpeg28
+ffmpeg-libs
 fuse-sshfs
 make
 %end
