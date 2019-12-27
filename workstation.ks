@@ -66,7 +66,7 @@ torbrowser-launcher
 %end
 
 
-{% assign scripts = "anki, firefox, freefilesync, git, hosts, password-gorilla, veracrypt" | split: ", " %}
+{% assign scripts = "anki, eclipse, firefox, freefilesync, git, hosts, password-gorilla, veracrypt" | split: ", " %}
 
 {% for script in scripts %}
 
