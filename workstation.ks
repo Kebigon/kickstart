@@ -56,11 +56,12 @@ services --enabled="chronyd"
 # Package Selection
 # Multimedia codecs: ffmpeg-libs compat-ffmpeg28
 %packages
+@^c-development
+@^development-tools
 @^workstation-product-environment
 compat-ffmpeg28
 ffmpeg-libs
 fuse-sshfs
-make
 torbrowser-launcher
 %end
 
