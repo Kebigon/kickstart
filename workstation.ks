@@ -36,7 +36,7 @@ network --hostname=localhost
 keyboard --vckeymap=jp --xlayouts='jp'
 
 # Configure Language During Installation
-lang en_US.UTF-8
+lang fr_FR.UTF-8
 
 # Configure X Window System
 xconfig --startxonboot
