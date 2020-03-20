@@ -2,9 +2,9 @@
 set -e
 
 # Download Anki
-anki_version=2.1.15
+anki_version=2.1.22
 
-wget -O - https://apps.ankiweb.net/downloads/current/anki-${anki_version}-linux-amd64.tar.bz2 | tar -xj -C /tmp
+wget -O - https://github.com/ankitects/anki/releases/download/${anki_version}/anki-${anki_version}-linux-amd64.tar.bz2 | tar -xj -C /tmp
 cd /tmp/anki-${anki_version}-linux-amd64
 make install
 cd -
