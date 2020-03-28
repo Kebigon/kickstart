@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-version="2019-12"
+version="2020-03"
 mirror="http://ftp.jaist.ac.jp/pub/eclipse"
 
 # Install eclipse into /opt
@@ -11,6 +11,6 @@ wget -O - "${mirror}/technology/epp/downloads/release/${version}/R/eclipse-java-
 wget {{ site.url }}/config/eclipse.desktop -O /usr/share/applications/eclipse.desktop
 
 # Install lombok
-wget https://projectlombok.org/downloads/lombok.jar -O /tmp
+wget https://projectlombok.org/downloads/lombok.jar -O /tmp/lombok.jar
 java -jar /tmp/lombok.jar install /opt/eclipse
-rm /tmp/lombok.jar
+rm -f /tmp/lombok.jar
