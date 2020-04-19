@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-VERACRYPT_VERSION=1.24-Update3
+VERACRYPT_VERSION=1.24-Update4
 
 # Download Veracrypt installation package, and extract veracrypt-[version]-setup-gui-x64
 wget -O - https://launchpad.net/veracrypt/trunk/${VERACRYPT_VERSION,,}/+download/veracrypt-$VERACRYPT_VERSION-setup.tar.bz2 | tar -xj -C /tmp --no-overwrite-dir veracrypt-$VERACRYPT_VERSION-setup-gui-x64
