@@ -5,11 +5,12 @@
 
 # Configure installation method
 install
-url --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch&country=JP
-repo --name=fedora --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch&country=JP
-repo --name=updates --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f$releasever&arch=$basearch&country=JP
-repo --name=rpmfusion-free --mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-$releasever&arch=$basearch&country=JP
-repo --name=rpmfusion-free-updates --mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-$releasever&arch=$basearch&country=JP
+url --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch&country=JP"
+repo --name=fedora-updates --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f$releasever&arch=$basearch&country=JP" --cost=0
+repo --name=rpmfusion-free --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-$releasever&arch=$basearch&country=JP" --includepkgs=rpmfusion-free-release
+repo --name=rpmfusion-free-updates --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-$releasever&arch=$basearch&country=JP" --cost=0
+repo --name=vscodium --install --baseurl="https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/rpms/" --cost=0
+repo --name=jitsi --install --baseurl="https://download.jitsi.org/jitsi/rpm/" --cost=0
 
 # zerombr
 zerombr
@@ -42,7 +43,7 @@ lang fr_FR.UTF-8
 xconfig --startxonboot
 
 # Configure Time Zone
-timezone Asia/Tokyo --isUtc
+timezone Asia/Tokyo
 
 # Set Root Password
 rootpw --lock
@@ -54,21 +55,21 @@ text
 services --enabled="chronyd"
 
 # Package Selection
-# Multimedia codecs: ffmpeg-libs compat-ffmpeg28
-# Exfat support: fuse-exfat
 %packages
-@^c-development
-@^development-tools
 @^workstation-product-environment
-compat-ffmpeg28
-ffmpeg-libs
+codium
+filezilla
 fuse-exfat
 fuse-sshfs
+jitsi
+keepassxc
+make
+notepadqq
 torbrowser-launcher
 %end
 
 
-{% assign scripts = "anki, eclipse, firefox, freefilesync, git, hosts, veracrypt" | split: ", " %}
+{% assign scripts = "gpg, anki, eclipse, firefox, freefilesync, git, hosts, veracrypt" | split: ", " %}
 
 {% for script in scripts %}
 
