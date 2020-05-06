@@ -2,7 +2,9 @@
 set -e
 
 # Download Anki
-anki_version=2.1.22
+anki_major_version=2.1
+anki_minor_version=15
+anki_version=${anki_major_version}.${anki_minor_version}
 
 wget -O - https://github.com/ankitects/anki/releases/download/${anki_version}/anki-${anki_version}-linux-amd64.tar.bz2 | tar -xj -C /tmp
 cd /tmp/anki-${anki_version}-linux-amd64
@@ -20,7 +22,7 @@ rm "/tmp/Low-Key Anki 2.1.zip"
 # $1: Add-on code
 # $2: Add-on name
 download_anki_addon() {
-	local addon_url=https://ankiweb.net/shared/download/$1?v=2.1
+	local addon_url="https://ankiweb.net/shared/download/$1?v=${anki_major_version}&p=${anki_minor_version}"
 	local addon_zip=/tmp/$1.zip
 	local addon_dir=/etc/skel/.local/share/Anki2/addons21/$1
 
