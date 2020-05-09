@@ -56,6 +56,7 @@ services --enabled="chronyd"
 
 # Package Selection
 %packages
+
 @^workstation-product-environment
 codium
 filezilla
@@ -66,6 +67,30 @@ keepassxc
 make
 notepadqq
 torbrowser-launcher
+vlc
+
+# Remove uneeded packages from gnome-desktop
+-gedit
+-gnome-boxes
+-gnome-software
+-cheese
+-chrome-gnome-shell
+-gnome-calendar
+-gnome-clocks
+-gnome-contacts
+-gnome-maps
+-gnome-photos
+-gnome-weather
+-totem
+
+# Remove uneeded packages from libreoffice
+-libreoffice-math
+-libreoffice-impress
+
+# Remove uneeded packages from workstation-product
+-fedora-chromium-config
+-rhythmbox
+
 %end
 
 
