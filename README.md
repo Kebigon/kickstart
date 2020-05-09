@@ -33,6 +33,7 @@ The home profile have the below add-ons installed:
 | [HTTPS Everywhere]      | GPL-2.0-or-later |
 | [Privacy Badger]        | GPL-3.0-only     |
 | [Decentraleyes]         | MPL-2.0          |
+| [ClearURLs]             | LGPL-3.0-only    |
 | [Temporary Containers]  | MIT              |
 | [Rikaichamp]            | MPL-2.0          |
 
@@ -48,6 +49,7 @@ The work profile have the below add-ons installed:
 | [HTTPS Everywhere]      | GPL-2.0-or-later |
 | [Privacy Badger]        | GPL-3.0-only     |
 | [Decentraleyes]         | MPL-2.0          |
+| [ClearURLs]             | LGPL-3.0-only    |
 | [Rikaichamp]            | MPL-2.0          |
 | [React Developer Tools] | MIT              |
 
@@ -114,6 +116,7 @@ The work profile have the below add-ons installed:
 [HTTPS Everywhere]: https://addons.mozilla.org/firefox/addon/https-everywhere
 [Privacy Badger]: https://addons.mozilla.org/firefox/addon/privacy-badger17
 [Decentraleyes]: https://addons.mozilla.org/firefox/addon/decentraleyes
+[ClearURLs]: https://addons.mozilla.org/firefox/addon/clearurls
 [Temporary Containers]: https://addons.mozilla.org/firefox/addon/temporary-containers
 [Rikaichamp]: https://addons.mozilla.org/firefox/addon/rikaichamp
 [React Developer Tools]: https://addons.mozilla.org/firefox/addon/react-devtools
