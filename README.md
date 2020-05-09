@@ -109,16 +109,16 @@ The work profile have the below add-ons installed:
 [StevenBlack's hosts file]: https://github.com/StevenBlack/hosts
 [ghacks' user.js]: https://github.com/ghacksuserjs/ghacks-user.js
 
-[firefox-extension-manager](https://github.com/NicolasBernaerts/ubuntu-scripts)
-[uBlock Origin](https://addons.mozilla.org/firefox/addon/ublock-origin)
-[HTTPS Everywhere](https://addons.mozilla.org/firefox/addon/https-everywhere)
-[Privacy Badger](https://addons.mozilla.org/firefox/addon/privacy-badger17)
-[Decentraleyes](https://addons.mozilla.org/firefox/addon/decentraleyes)
-[Temporary Containers](https://addons.mozilla.org/firefox/addon/temporary-containers)
-[Rikaichamp](https://addons.mozilla.org/firefox/addon/rikaichamp)
-[React Developer Tools](https://addons.mozilla.org/firefox/addon/react-devtools)
+[firefox-extension-manager]: https://github.com/NicolasBernaerts/ubuntu-scripts
+[uBlock Origin]: https://addons.mozilla.org/firefox/addon/ublock-origin
+[HTTPS Everywhere]: https://addons.mozilla.org/firefox/addon/https-everywhere
+[Privacy Badger]: https://addons.mozilla.org/firefox/addon/privacy-badger17
+[Decentraleyes]: https://addons.mozilla.org/firefox/addon/decentraleyes
+[Temporary Containers]: https://addons.mozilla.org/firefox/addon/temporary-containers
+[Rikaichamp]: https://addons.mozilla.org/firefox/addon/rikaichamp
+[React Developer Tools]: https://addons.mozilla.org/firefox/addon/react-devtools
 
-[Anki](https://apps.ankiweb.net)
-[Eclipse](https://www.eclipse.org/)
-[FreeFileSync](https://freefilesync.org)
-[VeraCrypt](https://www.veracrypt.fr)
+[Anki]: https://apps.ankiweb.net
+[Eclipse]: https://www.eclipse.org
+[FreeFileSync]: https://freefilesync.org
+[VeraCrypt]: https://www.veracrypt.fr
