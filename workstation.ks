@@ -99,7 +99,7 @@ vlc
 {% for script in scripts %}
 
 %post --log=/root/ks-{{ script }}.log
-{% include post.{{ script }}.sh %}
+{% include {{script}}/{{ script }}.post.sh %}
 %end
 
 {% endfor %}
