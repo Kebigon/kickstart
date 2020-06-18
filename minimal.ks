@@ -81,6 +81,10 @@ alacritty
 firefox
 torbrowser-launcher
 
+# Needed to use firefox-extension-manager
+unzip
+wget
+
 %end
 
 {% assign scripts = "gpg, dwm, dmenu, dotfiles, firefox" | split: ", " %}
