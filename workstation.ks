@@ -94,7 +94,7 @@ vlc
 %end
 
 
-{% assign scripts = "gpg, anki, eclipse, firefox, freefilesync, git, hosts, veracrypt" | split: ", " %}
+{% assign scripts = "gpg, dotfiles, anki, eclipse, firefox, freefilesync, hosts, veracrypt" | split: ", " %}
 
 {% for script in scripts %}
 
