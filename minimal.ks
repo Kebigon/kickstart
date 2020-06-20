@@ -10,6 +10,7 @@ repo --name=fedora-updates --mirrorlist="https://mirrors.fedoraproject.org/mirro
 repo --name=rpmfusion-free --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-$releasever&arch=$basearch&country=JP" --includepkgs=rpmfusion-free-release
 repo --name=rpmfusion-free-updates --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-$releasever&arch=$basearch&country=JP" --cost=0
 repo --name=alacritty --install --baseurl="https://download.copr.fedorainfracloud.org/results/pschyska/alacritty/fedora-$releasever-$basearch/"
+repo --name=pamixer --install --baseurl="https://download.copr.fedorainfracloud.org/results/opuk/pamixer/fedora-$releasever-$basearch/"
 
 # zerombr
 zerombr
@@ -58,16 +59,20 @@ services --enabled="chronyd"
 # Package Selection
 %packages
 
-sudo
+# Core: Smallest possible installation
+@core
+# Standard: Common set of utilities that extend the minimal installation.
+@standard
+# Local X.org display server
+@base-x
+
+
 initial-setup
 
 # Development Tools
 gcc
 git
 make
-
-# Local X.org display server
-@base-x
 
 # Libraries needed to compile dwm and dmenu
 libX11-devel
@@ -80,14 +85,12 @@ adobe-source-code-pro-fonts
 alacritty
 firefox
 torbrowser-launcher
-
-# Needed to use firefox-extension-manager
-unzip
-wget
+libnotify
+pamixer
 
 %end
 
-{% assign scripts = "gpg, dwm, dmenu, dotfiles, firefox" | split: ", " %}
+{% assign scripts = "gpg, dwm, dwmblocks, dmenu, dotfiles, firefox" | split: ", " %}
 
 {% for script in scripts %}
 
