@@ -65,7 +65,8 @@ services --enabled="chronyd"
 @standard
 # Local X.org display server
 @base-x
-
+# Audio/video framework common to desktops
+@multimedia
 
 initial-setup
 
@@ -81,16 +82,30 @@ libXinerama-devel
 
 # fonts
 adobe-source-code-pro-fonts
+adobe-source-han-code-jp-fonts
+gdouros-symbola-fonts
 
-alacritty
-firefox
-torbrowser-launcher
+# Desktop
+dunst
+fcitx-skk
+feh
 libnotify
 pamixer
 
+# Terminal emulator
+alacritty
+# Web browsers
+firefox
+torbrowser-launcher
+# LibreOffice
+libreoffice-calc
+libreoffice-writer
+
+
+
 %end
 
-{% assign scripts = "gpg, dwm, dwmblocks, dmenu, dotfiles, firefox" | split: ", " %}
+{% assign scripts = "gpg, dwm, dwmblocks, dmenu, dotfiles, firefox, anki, eclipse, freefilesync, hosts, veracrypt" | split: ", " %}
 
 {% for script in scripts %}
 
