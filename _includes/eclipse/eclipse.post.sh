@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-version="2020-06"
+version="2020-09"
 mirror="http://ftp.jaist.ac.jp/pub/eclipse"
 
 # Install eclipse into /opt
