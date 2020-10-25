@@ -32,8 +32,7 @@ install_extension() {
 HOME_PROFILE=kebigon.default
 install_extension $HOME_PROFILE ublock-origin
 install_extension $HOME_PROFILE https-everywhere
-install_extension $HOME_PROFILE privacy-badger17
-install_extension $HOME_PROFILE decentraleyes
+install_extension $HOME_PROFILE localcdn-fork-of-decentraleyes
 install_extension $HOME_PROFILE clearurls
 install_extension $HOME_PROFILE temporary-containers
 install_extension $HOME_PROFILE rikaichamp
@@ -43,8 +42,7 @@ ln -s /etc/firefox/user.js /etc/skel/.mozilla/firefox/$HOME_PROFILE/user.js
 WORK_PROFILE=kebigon.work
 install_extension $WORK_PROFILE ublock-origin
 install_extension $WORK_PROFILE https-everywhere
-install_extension $WORK_PROFILE privacy-badger17
-install_extension $WORK_PROFILE decentraleyes
+install_extension $WORK_PROFILE localcdn-fork-of-decentraleyes
 install_extension $WORK_PROFILE clearurls
 install_extension $WORK_PROFILE rikaichamp
 install_extension $WORK_PROFILE react-devtools
