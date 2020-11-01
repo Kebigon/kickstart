@@ -28,8 +28,8 @@ download_anki_addon() {
 	rm $addon_zip
 
 	# Create the meta.json file
-	timestamp="$(date +"%s")"
-	echo "{\"name\": \"$2\", \"mod\": $timestamp}" > $addon_dir/meta.json
+	# timestamp="$(date +"%s")"
+	# echo "{\"name\": \"$2\", \"mod\": $timestamp, \"min_point_version\": $anki_minor_version, \"max_point_version\": -$anki_minor_version}" > $addon_dir/meta.json
 }
 
 download_anki_addon 3918629684 "Japanese Support"
