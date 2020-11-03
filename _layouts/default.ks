@@ -1,16 +1,27 @@
 ---
 ---
 
-# https://docs.fedoraproject.org/en-US/fedora/f30/install-guide/appendixes/Kickstart_Syntax_Reference/
+# https://docs.fedoraproject.org/en-US/fedora/rawhide/install-guide/appendixes/Kickstart_Syntax_Reference/
+# https://github.com/sinner-/kickstart-fedora-workstation/blob/master/workstation.ks
 
 # Configure installation method
 install
 url --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch&country=JP"
-repo --name=fedora-updates --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f$releasever&arch=$basearch&country=JP" --cost=0
+repo --name=fedora --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch&country=JP"
+repo --name=updates --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f$releasever&arch=$basearch&country=JP" --cost=0
 repo --name=rpmfusion-free --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-$releasever&arch=$basearch&country=JP" --includepkgs=rpmfusion-free-release
 repo --name=rpmfusion-free-updates --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-$releasever&arch=$basearch&country=JP" --cost=0
-repo --name=alacritty --install --baseurl="https://download.copr.fedorainfracloud.org/results/pschyska/alacritty/fedora-$releasever-$basearch/"
-repo --name=pamixer --install --baseurl="https://download.copr.fedorainfracloud.org/results/opuk/pamixer/fedora-$releasever-$basearch/"
+
+{% for repository in page.repositories %}
+repo --name={{ repository.name }} --baseurl="{{ repository.baseurl }}" --cost=0
+
+{% if repository.key %}
+%post --log=/root/ks-gpg-{{ repository.name }}.log
+rpm --import "{{ repository.key }}"
+%end
+{% endif %}
+
+{% endfor %}
 
 # zerombr
 zerombr
@@ -48,8 +59,6 @@ timezone Asia/Tokyo
 # Set Root Password
 rootpw --lock
 
-# user --name=kebigon --password=changeme --groups=wheel
-
 # Perform Installation in Text Mode
 text
 
@@ -59,58 +68,56 @@ services --enabled="chronyd"
 # Package Selection
 %packages
 
-# Core: Smallest possible installation
-@core
-# Standard: Common set of utilities that extend the minimal installation.
-@standard
-# Local X.org display server
-@base-x
-# Audio/video framework common to desktops
-@multimedia
-
-initial-setup
-
-# Development Tools
-gcc
-git
+@^workstation-product-environment
+filezilla
+fuse-sshfs
+gnome-tweak-tool
+keepassxc
 make
-
-# Libraries needed to compile dwm and dmenu
-libX11-devel
-libXft-devel
-libXinerama-devel
-
-# fonts
-adobe-source-code-pro-fonts
-adobe-source-han-code-jp-fonts
-gdouros-symbola-fonts
-
-# Desktop
-dunst
-fcitx-skk
-feh
-libnotify
-pamixer
-
-# Terminal emulator
-alacritty
-# Web browsers
-firefox
+# notepadqq
 torbrowser-launcher
-# LibreOffice
+vlc
+
+# Remove uneeded packages from gnome-desktop
+-cheese
+-chrome-gnome-shell
+-gedit
+-gnome-boxes
+-gnome-calendar
+-gnome-clocks
+-gnome-contacts
+-gnome-maps
+-gnome-photos
+-gnome-software
+-gnome-weather
+-totem
+
+# Remove uneeded packages from container-management
+-@container-management
+
+# Remove uneeded packages from firefox
+-@firefox
+firefox
+
+# Remove uneeded packages from libreoffice
+-@libreoffice
 libreoffice-calc
 libreoffice-writer
 
+# Remove uneeded packages from workstation-product
+-fedora-chromium-config
+-rhythmbox
 
+{% for package in page.packages %}
+{{ package }}
+{% endfor %}
 
 %end
 
-{% assign scripts = "gpg, dwm, dwmblocks, dmenu, dotfiles, firefox, anki, eclipse, freefilesync, hosts, veracrypt" | split: ", " %}
-
-{% for script in scripts %}
+{% for script in page.scripts %}
 
 %post --log=/root/ks-{{ script }}.log
-{% include {{ script }}/{{ script }}.post.sh %}
+{% include {{script}}/{{ script }}.post.sh %}
 %end
 
 {% endfor %}
