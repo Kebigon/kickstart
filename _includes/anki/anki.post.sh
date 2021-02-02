@@ -3,7 +3,7 @@ set -e
 
 # Download Anki
 anki_major_version=2.1
-anki_minor_version=22
+anki_minor_version=35
 anki_version=${anki_major_version}.${anki_minor_version}
 
 
@@ -37,5 +37,4 @@ download_anki_addon 900801631 "MorphMan for Anki 21"
 download_anki_addon 1666520655 "Migaku Retirement"
 
 # Update MorphMan configuration
-sed -i "s/'min good sentence length': 2/'min good sentence length': 5/" /etc/skel/.local/share/Anki2/addons21/900801631/morph/config.py
-sed -i "s/'max good sentence length': 8/'max good sentence length': 15/" /etc/skel/.local/share/Anki2/addons21/900801631/morph/config.py
+sed -i "s/'max good sentence length': 30/'max good sentence length': 15/" /etc/skel/.local/share/Anki2/addons21/900801631/morph/config.py
