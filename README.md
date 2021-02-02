@@ -100,9 +100,7 @@ The work profile have the below add-ons installed:
 | FreeFileSync is present in the applications menu, and starts correctly                               | :o:                    |
 | * FreeFileSync is able to synchronize with an external hard drive                                    | :o:                    |
 | * FrreFileSync is able to synchronize with a folter mounted using sshfs                              | :o:                    |
-| Jitsi is present in the applications menu, and starts correctly                                      | :o:                    |
 | KeePassXC is present in the applications menu, and starts correctly                                  | :o:                    |
-| Notepadqq is present in the applications menu, and starts correctly                                  | :o:                    |
 | Tor Browser is present in the applications menu, and starts correctly                                | :o:                    |
 | VeraCrypt is present in the applications menu, and starts correctly                                  | :o:                    |
 | * VeraCrypt is able to open an exfat container                                                       | :o:                    |
