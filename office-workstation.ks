@@ -6,5 +6,5 @@ repositories:
   key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
 packages:
 - codium
-scripts: [ dotfiles, anki, eclipse, firefox, freefilesync, hosts, veracrypt ]
+scripts: [ base, dotfiles, anki, eclipse, firefox, freefilesync, veracrypt ]
 ---

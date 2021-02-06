@@ -1,0 +1,14 @@
+#!/bin/sh
+
+wget https://raw.githubusercontent.com/arkenfox/user.js/master/user.js -O /etc/firefox/user.js
+
+# web conferencing
+cp /etc/firefox/user.js /etc/firefox/meet.user.js
+echo "user_pref(\"media.peerconnection.enabled\", true);" >> /etc/firefox/meet.user.js
+echo "user_pref(\"media.peerconnection.ice.no_host\", false);" >> /etc/firefox/meet.user.js
+echo "user_pref(\"dom.webaudio.enabled\", true);" >> /etc/firefox/meet.user.js
+
+# streaming
+cp /etc/firefox/user.js /etc/firefox/netflix.user.js
+echo "user_pref(\"media.gmp-widevinecdm.enabled\", true);" >> /etc/firefox/netflix.user.js
+echo "user_pref(\"media.eme.enabled\", true);" >> /etc/firefox/netflix.user.js

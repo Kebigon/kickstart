@@ -1,4 +1,4 @@
 ---
 layout: default
-scripts: [ dotfiles, anki, firefox, freefilesync, hosts, veracrypt ]
+scripts: [ base, dotfiles, anki, firefox, freefilesync, veracrypt ]
 ---

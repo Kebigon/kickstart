@@ -117,7 +117,7 @@ libreoffice-writer
 {% for script in page.scripts %}
 
 %post --log=/root/ks-{{ script }}.log
-{% include {{script}}/{{ script }}.post.sh %}
+{% include {{script}}.sh %}
 %end
 
 {% endfor %}

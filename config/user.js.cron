@@ -1,4 +1,0 @@
-SHELL=/bin/sh
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-
-0 20 * * * root wget https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js -O /etc/firefox/user.js

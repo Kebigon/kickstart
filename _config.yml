@@ -1,1 +1,18 @@
-url: https://kickstart.kebigon.xyz
+url     : https://kickstart.kebigon.xyz
+defaults:
+  - scope:
+      path: "root"
+    values:
+      root: true
+  - scope:
+      path: "root/usr/bin"
+    values:
+      executable: true
+  - scope:
+      path: "root/usr/bin/update-hosts"
+    values:
+      execute: true
+  - scope:
+      path: "root/usr/bin/update-userjs"
+    values:
+      execute: true
