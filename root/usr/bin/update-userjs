@@ -6,6 +6,7 @@ wget https://raw.githubusercontent.com/arkenfox/user.js/master/user.js -O /etc/f
 cp /etc/firefox/user.js /etc/firefox/meet.user.js
 echo "user_pref(\"media.peerconnection.enabled\", true);" >> /etc/firefox/meet.user.js
 echo "user_pref(\"media.peerconnection.ice.no_host\", false);" >> /etc/firefox/meet.user.js
+echo "user_pref(\"media.getusermedia.screensharing.enabled\", true);" >> /etc/firefox/meet.user.js
 echo "user_pref(\"dom.webaudio.enabled\", true);" >> /etc/firefox/meet.user.js
 
 # streaming
