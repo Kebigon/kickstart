@@ -5,7 +5,6 @@
 # https://github.com/sinner-/kickstart-fedora-workstation/blob/master/workstation.ks
 
 # Configure installation method
-install
 url --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch&country=JP"
 repo --name=fedora --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch&country=JP"
 repo --name=updates --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f$releasever&arch=$basearch&country=JP" --cost=0
@@ -70,18 +69,18 @@ services --enabled="chronyd"
 
 @^workstation-product-environment
 filezilla
+file-roller
+file-roller-nautilus
 fuse-sshfs
 gnome-tweak-tool
 keepassxc
 make
-# notepadqq
+mpv
 torbrowser-launcher
-vlc
 
 # Remove uneeded packages from gnome-desktop
 -cheese
 -chrome-gnome-shell
--gedit
 -gnome-boxes
 -gnome-calendar
 -gnome-clocks
