@@ -1,6 +1,7 @@
 #!/bin/sh
 
 wget https://raw.githubusercontent.com/arkenfox/user.js/master/user.js -O /etc/firefox/user.js
+echo "user_pref(\"signon.rememberSignons\", false);" >> /etc/firefox/user.js
 
 # web conferencing
 cp /etc/firefox/user.js /etc/firefox/meet.user.js
